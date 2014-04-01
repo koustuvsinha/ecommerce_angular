@@ -1,0 +1,46 @@
+<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#home">Technocrat</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse navbar-ex1-collapse">
+            <ul class="nav navbar-nav">
+                <li><a href="#/store">Store</a>
+                </li>
+                <li><a href="#contact">Contact</a>
+                </li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="#/cart" title="go to shopping cart" ng-disabled="cart.getTotalCount() < 1">
+                    <i class="glyphicon glyphicon-shopping-cart" />
+                    <b>{{cart.getTotalCount()}}</b> items, <b>{{cart.getTotalPrice() | currency:"&#8377;"}}</b>
+                </a>
+                </li>
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container -->
+</nav><br>
+<h1>Welcome to the Store!</h1>
+<p>Search the Store : <div class="input-group"><input type="text" class="form-control" ng-model="search"><span class="input-group-addon"><span class="glyphicon glyphicon-search"></span></span></div></p>
+        <br>
+<div class="row">
+    <div class="col-xs-3" ng-repeat="product in store.products | orderBy : 'name' | filter:search">
+        <div class="row"><div class="col-xs-2"></div><div class="col-xs-8" align="center">
+            <a href="#product/{{product.id}}"><img ng-src="{{product.image}}" alt="mobile1" width="100%"/></a>
+        </div><div class="col-xs-2"></div>
+        </div>
+
+        <a href="#product/{{product.id}}">{{product.name}}</a><br><h4>Rs {{product.price}}/-</h4>
+
+    </div>
+</div>

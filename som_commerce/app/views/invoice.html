@@ -1,0 +1,33 @@
+<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#home">Technocrat</a>
+        </div>
+    </div>
+    <!-- /.container -->
+</nav><br>
+<h1>Your Invoice!</h1>
+        <p>Success! The order was accepted and is ready for processing!</p>
+        <hr>
+        <p class="text-info">Order ID : {{randomID()}}</p>
+        <p><strong>Name :</strong> {{user.name}}</p>
+        <p><strong>Email :</strong> {{user.email}}</p>
+        <p><strong>Address :</strong> {{user.address}}</p>
+        <p><strong>Contact :</strong> {{user.phone}}</p>
+        <p><em>Your ordered items :</em></p>
+        <table class="table table-hover table-bordered">
+            <tr><td>#</td><td>Product</td><td>Price</td></tr>
+            <tr ng-repeat="item in cart.items">
+                <td>{{$index + 1}}</td>
+                <td><a href="#product/{{item.id}}">{{item.name}}</a></td><td>{{item.price | currency:"&#8377;"}}</td>
+                <tr><td></td><td><strong>Subtotal :</strong></td><td><strong>{{cart.getTotalPrice() | currency:"&#8377;"}}</strong></td></tr>
+
+            </tr>
+        </table>
+        <button class="btn btn-primary" ng-click="resetShop()">Confirm & Return to Store</button>
