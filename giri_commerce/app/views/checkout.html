@@ -1,0 +1,73 @@
+<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#home">Flippers</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse navbar-ex1-collapse">
+            <ul class="nav navbar-nav">
+                <li><a href="#/store">Store</a>
+                </li>
+                <li><a href="#contact">Contact</a>
+                </li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="#/cart" title="go to shopping cart" ng-disabled="cart.getTotalCount() < 1">
+                    <i class="glyphicon glyphicon-shopping-cart" />
+                    <b>{{cart.getTotalCount()}}</b> items, <b>{{cart.getTotalPrice() | currency:"&#8377;"}}</b>
+                </a>
+                </li>
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container -->
+</nav><br>
+<h1>Checkout!</h1>
+        <p class="text-info">We only provide <strong>Cash on Delivery</strong> option for now. Please enter your name,address and phone number!</p>
+        <br>
+        <form novalidate name="form" role="form" class="form-horizontal">
+
+            <div class="form-group">
+                <label for="username" class="col-sm-2 control-label">Name</label>
+                <div class="col-sm-5">
+                <input type="text" class="form-control" ng-model="user.name" id="username" required />
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="userphone" class="col-sm-2 control-label">Phone</label>
+                <div class="col-sm-5">
+                    <input type="number" class="form-control" ng-model="user.phone" name="userphone" id="userphone" required />
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="useremail" class="col-sm-2 control-label">Email</label>
+                <div class="col-sm-5">
+                    <input type="email" class="form-control" ng-model="user.email" id="useremail" name="useremail" required />
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="useraddress" class="col-sm-2 control-label">Address</label>
+                <div class="col-sm-5">
+                    <textarea class="form-control" rows="3" ng-model="user.address" id="useraddress" required></textarea>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-sm-offset-2 col-sm-10">
+                    <button type="submit" class="btn btn-primary" ng-click="update(user)" ng-disabled="form.$invalid">Continue</button>
+                </div>
+            </div>
+            <div class="col-sm-offset-2" ng-show="form.useremail.$dirty && form.useremail.$invalid">
+                <p class="text-danger" ng-show="form.useremail.$error.required">Tell us your email.</p>
+                <p class="text-danger" ng-show="form.useremail.$error.email">This is not a valid email.</p>
+                </div><div class="col-sm-offset-2" ng-show="form.userphone.$dirty" && form.userphone.$invalid">
+                <p class="text-danger" ng-show="form.userphone.$error.number">This is not a valid Phone number.</p>
+            </div>
+        </form>

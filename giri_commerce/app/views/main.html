@@ -1,0 +1,75 @@
+<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#home">Flippers</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse navbar-ex1-collapse">
+            <ul class="nav navbar-nav">
+                <li><a href="#/store">Store</a>
+                </li>
+                <li><a href="#contact">Contact</a>
+                </li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="#/cart" title="go to shopping cart" ng-disabled="cart.getTotalCount() < 1">
+                    <i class="glyphicon glyphicon-shopping-cart" />
+                    <b>{{cart.getTotalCount()}}</b> items, <b>{{cart.getTotalPrice() | currency:"&#8377;"}}</b>
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container -->
+</nav><br>
+
+<div id="main_carousel" class="carousel slide" data-ride="carousel">
+    <ol class="carousel-indicators">
+        <li data-target="#main_carousel" data-slide-to="0" class="active"></li>
+        <li data-target="#main_carousel" data-slide-to="1"></li>
+        <li data-target="#main_carousel" data-slide-to="2"></li>
+    </ol>
+    <div class="carousel-inner">
+        <div class="item active">
+            <img src="http://img5a.flixcart.com/www/promos/new/20140331_122309_730x300_homepage-large-11.jpg" alt="Slide1"/>
+        </div>
+        <div class="item">
+            <img src="http://img6a.flixcart.com/www/promos/new/20140321_163007_730x300_category-landing-page1.jpg" alt="Slide2"/>
+        </div>
+        <div class="item">
+            <img src="http://img6a.flixcart.com/www/promos/new/20140308_210028_730x300_category-landing-page-64.jpg" alt="Slide3"/>
+        </div>
+
+    </div>
+    <a class="left carousel-control" href="#main_carousel" data-slide="prev"><span class="glyphicon glyphicon-chevron-left"></span></a>
+    <a class="right carousel-control" href="#main_carousel" data-slide="next"><span class="glyphicon glyphicon-chevron-right"></span></a>
+
+</div>
+<h2>Women's Footwear, complimenting your style!</h2>
+        <hr>
+<div class="row">
+    <div class="col-xs-3" ng-repeat="n in [4] | makeRange">
+        <div class="row"><div class="col-xs-2"></div><div class="col-xs-8" align="center">
+        <a href="#product/{{store.products[n].id}}"><img class="img-responsive" ng-src="{{store.products[n].image}}" alt="mobile1"/></a>
+        </div><div class="col-xs-2"></div>
+        </div>
+        <a href="#product/{{store.products[n].id}}">{{store.products[n].name}}</a><br><h4>Rs {{store.products[n].price}}/-</h4>
+    </div>
+</div>
+<!--
+<div class="row">
+    <div class="col-md-3" ng-repeat="docs in awesomeThings">
+        {{docs}}
+    </div>
+</div>
+-->
+
+
